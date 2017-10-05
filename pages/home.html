@@ -1,0 +1,56 @@
+<!-- home.html -->
+<div class="row">
+    <div class="col-lg-6">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' options="options" draggable="true" bounds="map.bounds">
+            <ui-gmap-markers idKey="id" models="markers" coords="'self'" icon="'icon'">
+            </ui-gmap-markers>
+        </ui-gmap-google-map>
+    </div>
+    <div class="col-lg-6">
+        <div class="input-group">
+            <select class="form-control" ng-model="filterValue">
+                <option value="applicant">Company</option>
+                <option value="fooditems">Food</option>
+                <option value="address">Address</option>
+            </select>
+            <input ng-model="enteredValue" type="text" class="form-control" aria-label="Keyword">
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-info " ng-Click="findValue(enteredValue)">
+                <i class="fa fa-filter" aria-hidden="true"></i>
+                Search
+            </button>
+                </span>
+
+        </div>
+
+        <div class="results">
+            <table class="table table-responsive table-hover">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Details</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="results" ng-repeat="info in results">
+                    <td>
+                        <h3>{{info.applicant}}</h3>
+                        <strong>Style?</strong> <em>{{info.facilitytype}}</em><br>
+                        <strong>What?</strong> {{info.fooditems}}<br>
+                        <strong>Where?</strong> {{info.address}}<br>
+                        <strong>When?</strong>
+                        <small>{{info.dayshours}}</small>
+                        <br>
+                    </td>
+                    <td>
+                        <button class="btn btn-info btn-sm" type="button" aria-expanded="false"
+                                ng-click="zoomMarker(info.applicant, info.latitude, info.longitude)">
+                            <i class="fa fa-search-plus" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

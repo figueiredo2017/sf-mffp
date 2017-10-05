@@ -1,0 +1,29 @@
+.container {
+    margin-top: 70px;
+}
+
+.angular-google-map-container {
+    height: 80vh;
+    width: 44vw;
+}
+
+.results {
+    font-size: 10px;
+    margin-top: 0.5vh;
+    height: 74vh;
+    overflow: auto;
+}
+
+.results h3 {
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 720px) {
+    .angular-google-map-container {
+        width: 100vw;
+    }
+
+    .results {
+        width: 100vw;
+    }
+}
